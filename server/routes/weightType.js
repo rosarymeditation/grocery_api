@@ -1,19 +1,17 @@
-const controller = require("../controllers/product");
+const controller = require("../controllers/weightType");
 const { rootUrl } = require("../utility/constants");
-const { auth, upload } = require("../utility/global");
+const { upload } = require("../utility/global");
 module.exports = (app) => {
   app.post(
-    rootUrl("product/create"),
-    upload.single("image"),
+    rootUrl("weighType/create"),
 
     controller.create
   );
-  app.post(rootUrl("product/all"), controller.findAll);
-  app.post(rootUrl("product/findById"), controller.findById);
-  app.delete(rootUrl("product/:id"), controller.delete);
+  app.post(rootUrl("weighType/all"), controller.findAll);
+  app.post(rootUrl("weighType/findById"), controller.findById);
+  app.delete(rootUrl("weighType/:id"), controller.delete);
   app.patch(
-    rootUrl("product/:id"),
-    upload.single("image"),
+    rootUrl("weighType/:id"),
 
     controller.update
   );
@@ -32,11 +30,11 @@ module.exports = (app) => {
 
   //   app.get(rootUrl("categoriesLighter"), controller.findAllLighter);
 
-  //   app.get(rootUrl("category/display"), controller.display);
+  //   app.get(rootUrl("weighType/display"), controller.display);
 
-  //   app.get(rootUrl("category/:id"), controller.findPk);
+  //   app.get(rootUrl("weighType/:id"), controller.findPk);
 
-  //   app.patch(rootUrl("category/:id"), controller.update);
+  //   app.patch(rootUrl("weighType/:id"), controller.update);
 
-  //   app.delete(rootUrl("category/:id"), controller.delete);
+  //   app.delete(rootUrl("weighType/:id"), controller.delete);
 };

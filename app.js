@@ -80,6 +80,7 @@ require(`${refPath}product`)(app);
 require(`${refPath}category`)(app);
 require(`${refPath}cart`)(app);
 require(`${refPath}order`)(app);
+require(`${refPath}weightType`)(app);
 
 app.use((err, req, res, next) => res.json(err));
 
