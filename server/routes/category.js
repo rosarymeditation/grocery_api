@@ -9,6 +9,13 @@ module.exports = (app) => {
     controller.create
   );
   app.post(rootUrl("category/all"), controller.findAll);
+  app.post(rootUrl("findCondimentCategory"), controller.findCondimentCategory);
+  app.post(rootUrl("findSeafoodCategory"), controller.findSeafoodCategory);
+  app.post(rootUrl("findDrinkCategory"), controller.findDrinkCategory);
+  app.post(rootUrl("findVegCategory"), controller.findVegCategory);
+  app.post(rootUrl("findGrainCategory"), controller.findGrainCategory);
+  app.post(rootUrl("findMeatCategory"), controller.findMeatCategory);
+  app.post(rootUrl("findCosmeticCategory"), controller.findCosmeticCategory);
   app.post(rootUrl("category/findById"), controller.findById);
   app.delete(rootUrl("category/:id"), controller.delete);
   app.patch(

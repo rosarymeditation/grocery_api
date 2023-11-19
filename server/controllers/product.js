@@ -4,7 +4,7 @@
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 const Product = require("../models/product");
-const { upload } = require("../utility/global");
+const { upload, rand } = require("../utility/global");
 const mongoose = require("mongoose");
 const {
   SERVER_ERROR,
@@ -33,6 +33,7 @@ module.exports = {
       //
       const data = Product({
         name: name,
+        serial: rand(1, 100000) + rand(1, 100000),
         price: price,
         quantity: quantity,
         description: description,
@@ -65,8 +66,8 @@ module.exports = {
 
       const data = await Product.find()
         .skip((page - 1) * limit) // Skip documents based on the current page
-        .limit(limit);
-      // .populate("author")
+        .limit(limit)
+        .populate("weightType");
       // .populate("status")
       // .populate("likes")
       // .populate("comments");
