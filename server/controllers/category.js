@@ -50,12 +50,13 @@ module.exports = {
     const id = req.body.id;
 
     try {
+      const categoryId = "6557b9a245ed61f61355ebc4";
       const seaFood = await Product.find({
-        category: "6557b9a245ed61f61355ebc4",
+        category: categoryId,
       })
         .populate("weightType")
         .limit(5);
-      return res.status(OK).send({ data: seaFood });
+      return res.status(OK).send({ data: seaFood, categoryId });
     } catch (err) {
       return res.status(OK).send({ error: true, message: err });
     }
@@ -64,12 +65,13 @@ module.exports = {
     const id = req.body.id;
 
     try {
+      const categoryId = "6557ba1b45ed61f61355ebc6";
       const condiment = await Product.find({
-        category: "6557ba1b45ed61f61355ebc6",
+        category: categoryId,
       })
         .populate("weightType")
         .limit(5);
-      return res.status(OK).send({ data: condiment });
+      return res.status(OK).send({ data: condiment, categoryId });
     } catch (err) {
       return res.status(OK).send({ error: true, message: err });
     }
@@ -78,12 +80,13 @@ module.exports = {
     const id = req.body.id;
 
     try {
+      const categoryId = "6557ba8345ed61f61355ebc8";
       const drink = await Product.find({
-        category: "6557ba8345ed61f61355ebc8",
+        category: categoryId,
       })
         .populate("weightType")
         .limit(5);
-      return res.status(OK).send({ data: drink });
+      return res.status(OK).send({ data: drink, categoryId: categoryId });
     } catch (err) {
       return res.status(OK).send({ error: true, message: err });
     }
@@ -92,12 +95,13 @@ module.exports = {
     const id = req.body.id;
 
     try {
+      const categoryId = "6557ba9d45ed61f61355ebca";
       const veg = await Product.find({
-        category: "6557ba9d45ed61f61355ebca",
+        category: categoryId,
       })
         .populate("weightType")
         .limit(5);
-      return res.status(OK).send({ data: veg });
+      return res.status(OK).send({ data: veg, categoryId });
     } catch (err) {
       return res.status(OK).send({ error: true, message: err });
     }
@@ -106,12 +110,13 @@ module.exports = {
     const id = req.body.id;
 
     try {
+      const categoryId = "6557bac645ed61f61355ebcc";
       const grain = await Product.find({
-        category: "6557bac645ed61f61355ebcc",
+        category: categoryId,
       })
         .populate("weightType")
         .limit(5);
-      return res.status(OK).send({ data: grain });
+      return res.status(OK).send({ data: grain, categoryId: categoryId });
     } catch (err) {
       return res.status(OK).send({ error: true, message: err });
     }
@@ -120,12 +125,13 @@ module.exports = {
     const id = req.body.id;
 
     try {
+      const categoryId = "6557badd45ed61f61355ebce";
       const meat = await Product.find({
-        category: "6557badd45ed61f61355ebce",
+        category: categoryId,
       })
         .populate("weightType")
         .limit(5);
-      return res.status(OK).send({ data: meat });
+      return res.status(OK).send({ data: meat, categoryId });
     } catch (err) {
       return res.status(OK).send({ error: true, message: err });
     }
@@ -133,12 +139,13 @@ module.exports = {
 
   findCosmeticCategory: async (req, res) => {
     try {
+      const categoryId = "6557cfb8777aa9cf7f055fd3";
       const cosmetic = await Product.find({
-        category: "6557cfb8777aa9cf7f055fd3",
+        category: categoryId,
       })
         .populate("weightType")
         .limit(5);
-      return res.status(OK).send({ data: cosmetic });
+      return res.status(OK).send({ data: cosmetic, categoryId });
     } catch (err) {
       return res.status(OK).send({ error: true, message: err });
     }

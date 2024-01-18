@@ -81,6 +81,9 @@ require(`${refPath}category`)(app);
 require(`${refPath}cart`)(app);
 require(`${refPath}order`)(app);
 require(`${refPath}weightType`)(app);
+require(`${refPath}address`)(app);
+require(`${refPath}transaction`)(app);
+require(`${refPath}favorite`)(app);
 
 app.use((err, req, res, next) => res.json(err));
 

@@ -4,7 +4,7 @@ module.exports = {
   ACCESS_TOKEN: "access_token",
   REFRESH_TOKEN: "refresh_token",
   SITE_URL: "https://foodengo.co.uk/",
-  email1: "rosary@softnergy.com",
+  email1: "no-reply@afrofoodmart.com",
   email2: "nnamdi4nwosu@gmail.com",
   //SITE_URL: "http://localhost:3000/",
 };

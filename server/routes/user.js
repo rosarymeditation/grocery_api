@@ -13,10 +13,7 @@ module.exports = (app) => {
   app.post(
     rootUrl("update-user-profile"),
     auth,
-    upload.fields([
-      { name: "avatar", maxCount: 1 },
-      { name: "banner", maxCount: 1 },
-    ]),
+
     controller.updateProfile
   );
   app.post(rootUrl("userInfo"), auth, controller.findUserInfo);

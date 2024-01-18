@@ -78,6 +78,21 @@ module.exports = {
     }
   },
 
+  findAllByCategory: async (req, res) => {
+    try {
+      const { page = 1, limit = 10, categoryId } = req.body;
+
+      const data = await Product.find({ category: categoryId })
+        .skip((page - 1) * limit) // Skip documents based on the current page
+        .limit(limit)
+        .populate("weightType");
+      return res.status(OK).send({ data: data });
+    } catch (err) {
+      console.log(err);
+      return res.status(SERVER_ERROR).send({ error: true, message: err });
+    }
+  },
+
   delete: async (req, res) => {
     try {
       const id = req.params.id;
@@ -88,6 +103,24 @@ module.exports = {
     }
   },
 
+  manipulate: async (req, res) => {
+    try {
+      const data = await Product.find();
+      for (var item of data) {
+        const options = { new: true };
+
+        const result = await Product.findByIdAndUpdate(
+          item._id,
+          { isAvailable: true },
+          options
+        );
+      }
+
+      return res.status(OK).send({ error: false, result });
+    } catch (err) {
+      return res.status(OK).send({ error: true, message: err });
+    }
+  },
   update: async (req, res) => {
     try {
       console.log(req.params.id);

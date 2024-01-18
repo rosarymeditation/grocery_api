@@ -22,7 +22,8 @@ const Role = require("../models/role");
 module.exports = {
   signUp: async (req, res) => {
     try {
-      const { password, email, firstname, lastname } = req.body;
+      console.log(req.body);
+      const { password, email, firstname, lastname, phone } = req.body;
       const findEmail = await User.findOne({ email });
 
       if (findEmail) {
@@ -43,7 +44,7 @@ module.exports = {
             role: "6530595ad24dd0acc26c71e1",
             firstname: CapitalizeFirstLetter(firstname),
             lastname: CapitalizeFirstLetter(lastname),
-            email,
+            phone: phone,
           });
           try {
             const data = await dataObj.save();
@@ -123,17 +124,12 @@ module.exports = {
       const formBody = req.body;
 
       const options = { new: true };
-      if (req.files && req.files.avatar) {
-        formBody.avatar = req.files.avatar[0].location;
-      }
-      if (req.files && req.files.banner) {
-        formBody.banner = req.files.banner[0].location;
-      }
+
       console.log(req.body);
       const data = await User.findByIdAndUpdate(id, formBody, options);
       return res.status(OK).send(data);
     } catch (err) {
-      return res.status(OK).send({ error: true, message: err });
+      return res.status(SERVER_ERROR).send({ error: true, message: err });
     }
   },
 
@@ -190,7 +186,7 @@ module.exports = {
     const { email } = req.body;
     console.log(email);
     try {
-      const findUser = await User.findOne({ email: email, hasDeleted: false });
+      const findUser = await User.findOne({ email: email });
       console.log(findUser);
       if (findUser) {
         const options = { new: true };
@@ -203,7 +199,7 @@ module.exports = {
         const msg = {
           to: email,
           from: email1,
-          templateId: "d-11a4e4f10ad843548301ecedb3081847",
+          templateId: "d-208706fbb0d64f18ad7a4be91faa97f3",
           dynamic_template_data: {
             user: user.firstname || "user",
             code: code,
@@ -228,7 +224,7 @@ module.exports = {
 
   signUp: async (req, res) => {
     try {
-      const { password, email, firstname, lastname } = req.body;
+      const { password, email, firstname, lastname, phone } = req.body;
       const findEmail = await User.findOne({ email, hasDeleted: false });
 
       if (findEmail) {
@@ -248,8 +244,8 @@ module.exports = {
             password: hash,
             firstname: CapitalizeFirstLetter(firstname),
             lastname: CapitalizeFirstLetter(lastname),
-            role: "6530595ad24dd0acc26c71e1",
-            email,
+            role: "6561f6041db79909ad422ac5",
+            phone: phone,
           });
           try {
             const data = await dataObj.save();

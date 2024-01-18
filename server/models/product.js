@@ -8,7 +8,8 @@ const productSchema = new mongoose.Schema({
   weight: { type: String, default: 0 },
   image: { type: String, required: true },
   description: { type: String },
-  isPopular: { type: Boolean, default: false },
+  isPopular: { type: Boolean, default: true },
+  isAvailable: { type: Boolean, default: true },
   category: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Category",

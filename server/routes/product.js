@@ -8,7 +8,9 @@ module.exports = (app) => {
 
     controller.create
   );
+  app.post(rootUrl("manipulate"), controller.manipulate);
   app.post(rootUrl("product/all"), controller.findAll);
+  app.post(rootUrl("productsByCategory"), controller.findAllByCategory);
   app.post(rootUrl("product/findById"), controller.findById);
   app.delete(rootUrl("product/:id"), controller.delete);
   app.patch(

@@ -129,6 +129,14 @@ const uploadDoc = multer({
   }),
 });
 
+const pointDispatcher = (amount) => {
+  //for every one pound is for 2 pounds
+  const onePoint = 2;
+  const point = Math.floor(amount / onePoint);
+
+  return point;
+};
+
 const authenticateUser = (req, res, next) => {
   try {
     const bearerHeader = req.headers.authorization;
@@ -230,4 +238,5 @@ module.exports = {
   getConvertedDate,
   rand,
   CapitalizeFirstLetter,
+  pointDispatcher,
 };
